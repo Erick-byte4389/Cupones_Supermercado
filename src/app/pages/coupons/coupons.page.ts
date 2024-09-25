@@ -10,6 +10,7 @@ import { CouponsService } from 'src/services/coupons.service';
 })
 export class CouponsPage implements OnInit {
 
+  public couponsActive: boolean;
   public coupons: Coupon[];
 
   constructor(
@@ -18,6 +19,7 @@ export class CouponsPage implements OnInit {
     private navController: NavController
   ) { 
     this.coupons = [];
+    this.couponsActive = false;
   }
 
   ngOnInit() {
@@ -30,6 +32,8 @@ export class CouponsPage implements OnInit {
 
   changeActive(coupon: Coupon) {
     coupon.active = !coupon.active;
+    this.couponsActive = this.coupons.some(c => c.active
+    );
   }
 
   goToCard() {
