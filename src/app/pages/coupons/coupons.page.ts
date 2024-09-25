@@ -25,4 +25,8 @@ export class CouponsPage implements OnInit {
     })
   }
 
+  changeActive(coupon: Coupon) {
+    coupon.active = !coupon.active;
+  }
+
 }
